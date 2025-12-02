@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.sakthisaran.in/sitemap.xml
+Sitemap: https://sakthisaran.in/sitemap.xml
