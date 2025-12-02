@@ -24,6 +24,9 @@ export default function Home() {
       const hostname = window.location.hostname; // e.g. "localhost" or "xyz.portfolio.com"
 
       if (hostname.includes(".")) {
+        if(hostname.split(".")[0] === "www") {
+          return hostname.split(".")[1];
+        }
         // Take the first part of the domain (subdomain)
         return hostname.split(".")[0];
       }

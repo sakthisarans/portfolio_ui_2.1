@@ -89,6 +89,9 @@ export default function Chatbot() {
         if (typeof window !== "undefined") {
             const hostname = window.location.hostname;
             if (hostname.includes(".")) {
+                if(hostname.split(".")[0] === "www") {
+                    return hostname.split(".")[1];
+                }
                 return hostname.split(".")[0];
             }
             return hostname;
