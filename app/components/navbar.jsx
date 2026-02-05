@@ -49,18 +49,6 @@ function Navbar({ personalData }) {
           <li>
             <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#contact"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">CONTACT</div></Link>
           </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/chat"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">AI CHAT</div></Link>
-          </li>
-          {isAuth ? (
-            <li>
-              <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/admin"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">ADMIN</div></Link>
-            </li>
-          ) : (
-            <li>
-              <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/login"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">LOGIN</div></Link>
-            </li>
-          )}
         </ul>
       </div>
     </nav>
