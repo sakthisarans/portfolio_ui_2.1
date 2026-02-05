@@ -9,9 +9,9 @@ import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 import Github from "./components/homepage/github";
-import Chatbot from "./components/homepage/bot";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
+import FloatingChatWidget from "./components/FloatingChatWidget";
 import { PacmanLoader } from "react-spinners";
 import { v4 as uuidv4 } from "uuid"; // Install with: npm install uuid
 
@@ -24,7 +24,7 @@ export default function Home() {
       const hostname = window.location.hostname; // e.g. "localhost" or "xyz.portfolio.com"
 
       if (hostname.includes(".")) {
-        if(hostname.split(".")[0] === "www") {
+        if (hostname.split(".")[0] === "www") {
           return hostname.split(".")[1];
         }
         // Take the first part of the domain (subdomain)
@@ -110,7 +110,6 @@ export default function Home() {
   return (
     <div suppressHydrationWarning>
       <Navbar personalData={portfolio.personalData} />
-      <Chatbot />
       <HeroSection
         personalData={portfolio.personalData}
         skillsData={portfolio.skillsData}
@@ -124,6 +123,9 @@ export default function Home() {
       <Blog blogs={portfolio.blog} />
       <ContactSection contact={portfolio.contact} />
       <Footer personalData={portfolio.personalData} />
+
+      {/* Floating Chat Widget */}
+      <FloatingChatWidget />
     </div>
   );
 }

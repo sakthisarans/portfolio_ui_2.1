@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './animations.css';
+
 :root {
   --foreground-rgb: rgb(211, 216, 232);
 }
@@ -10,6 +12,10 @@
   :root {
     --foreground-rgb: 255, 255, 255;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
