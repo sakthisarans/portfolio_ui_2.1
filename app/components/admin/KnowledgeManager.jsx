@@ -335,7 +335,7 @@ export default function KnowledgeManager() {
                     <li><strong>Training Prompts:</strong> Define how the AI should understand and use the content</li>
                 </ul>
                 <p style={{ color: '#6b7280', lineHeight: '1.6', marginTop: '1rem' }}>
-                    Once added, click the "Start Training" button to process the knowledge and make it available to your AI assistant in the chat interface.
+                    Once added, click the &quot;Start Training&quot; button to process the knowledge and make it available to your AI assistant in the chat interface.
                 </p>
             </div>
         </div>

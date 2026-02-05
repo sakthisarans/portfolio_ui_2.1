@@ -15,7 +15,7 @@ export default function LoginPage() {
                 <LoginForm />
 
                 <div className="auth-footer">
-                    Don't have an account?{" "}
+                    Don&apos;t have an account?{" "}
                     <Link href="/signup">Sign up here</Link>
                 </div>
             </div>
