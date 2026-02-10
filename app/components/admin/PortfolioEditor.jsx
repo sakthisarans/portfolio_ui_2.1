@@ -124,6 +124,20 @@ export default function PortfolioEditor({ domain }) {
         });
     };
 
+    const moveArrayItem = (section, index, direction) => {
+        const newArray = [...portfolio[section]];
+        const targetIndex = direction === 'up' ? index - 1 : index + 1;
+
+        if (targetIndex < 0 || targetIndex >= newArray.length) return;
+
+        [newArray[index], newArray[targetIndex]] = [newArray[targetIndex], newArray[index]];
+
+        setPortfolio({
+            ...portfolio,
+            [section]: newArray,
+        });
+    };
+
     const addSkill = (skill) => {
         if (skill && !portfolio.skillsData.includes(skill)) {
             setPortfolio({
@@ -368,12 +382,30 @@ export default function PortfolioEditor({ domain }) {
                         <div key={index} className="dynamic-item">
                             <div className="dynamic-item-header">
                                 <h4>Experience #{index + 1}</h4>
-                                <button
-                                    className="btn-remove"
-                                    onClick={() => removeArrayItem('experiences', index)}
-                                >
-                                    Remove
-                                </button>
+                                <div className="header-actions">
+                                    <button
+                                        className="btn-move"
+                                        disabled={index === 0}
+                                        onClick={() => moveArrayItem('experiences', index, 'up')}
+                                        title="Move Up"
+                                    >
+                                        ↑
+                                    </button>
+                                    <button
+                                        className="btn-move"
+                                        disabled={index === portfolio.experiences.length - 1}
+                                        onClick={() => moveArrayItem('experiences', index, 'down')}
+                                        title="Move Down"
+                                    >
+                                        ↓
+                                    </button>
+                                    <button
+                                        className="btn-remove"
+                                        onClick={() => removeArrayItem('experiences', index)}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
                             </div>
                             <div className="editor-grid">
                                 <div className="form-group">
@@ -428,12 +460,30 @@ export default function PortfolioEditor({ domain }) {
                         <div key={index} className="dynamic-item">
                             <div className="dynamic-item-header">
                                 <h4>Education #{index + 1}</h4>
-                                <button
-                                    className="btn-remove"
-                                    onClick={() => removeArrayItem('educations', index)}
-                                >
-                                    Remove
-                                </button>
+                                <div className="header-actions">
+                                    <button
+                                        className="btn-move"
+                                        disabled={index === 0}
+                                        onClick={() => moveArrayItem('educations', index, 'up')}
+                                        title="Move Up"
+                                    >
+                                        ↑
+                                    </button>
+                                    <button
+                                        className="btn-move"
+                                        disabled={index === portfolio.educations.length - 1}
+                                        onClick={() => moveArrayItem('educations', index, 'down')}
+                                        title="Move Down"
+                                    >
+                                        ↓
+                                    </button>
+                                    <button
+                                        className="btn-remove"
+                                        onClick={() => removeArrayItem('educations', index)}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
                             </div>
                             <div className="editor-grid">
                                 <div className="form-group">
@@ -488,12 +538,30 @@ export default function PortfolioEditor({ domain }) {
                         <div key={index} className="dynamic-item">
                             <div className="dynamic-item-header">
                                 <h4>{project.name || `Project #${index + 1}`}</h4>
-                                <button
-                                    className="btn-remove"
-                                    onClick={() => removeArrayItem('projectsData', index)}
-                                >
-                                    Remove
-                                </button>
+                                <div className="header-actions">
+                                    <button
+                                        className="btn-move"
+                                        disabled={index === 0}
+                                        onClick={() => moveArrayItem('projectsData', index, 'up')}
+                                        title="Move Up"
+                                    >
+                                        ↑
+                                    </button>
+                                    <button
+                                        className="btn-move"
+                                        disabled={index === portfolio.projectsData.length - 1}
+                                        onClick={() => moveArrayItem('projectsData', index, 'down')}
+                                        title="Move Down"
+                                    >
+                                        ↓
+                                    </button>
+                                    <button
+                                        className="btn-remove"
+                                        onClick={() => removeArrayItem('projectsData', index)}
+                                    >
+                                        Remove
+                                    </button>
+                                </div>
                             </div>
                             <div className="form-group">
                                 <label>Name</label>
