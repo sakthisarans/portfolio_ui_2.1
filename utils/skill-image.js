@@ -84,7 +84,12 @@ import sqlalchemy from '../app/assets/svg/skills/sqlalchemy.svg'
 import fastapi from '../app/assets/svg/skills/fastapi.svg'
 import Ubuntu from '../app/assets/svg/skills/ubuntu.svg'
 
-
+import weaviate from '../app/assets/svg/skills/weaviate.svg'
+import redis from '../app/assets/svg/skills/redis.svg'
+import openai from '../app/assets/svg/skills/openai.svg'
+import ollama from '../app/assets/svg/skills/ollama.svg'
+import gemini from '../app/assets/svg/skills/gemini.svg'
+import azureai from '../app/assets/svg/skills/azureai.svg'
 
 
 export const skillsImage = (skill) => {
@@ -258,6 +263,18 @@ export const skillsImage = (skill) => {
       return fastapi;
     case 'ubuntu':
       return Ubuntu;
+    case "azureai":
+      return azureai;
+    case "gemini":
+      return gemini;
+    case "ollama":
+      return ollama;
+    case "openai":
+      return openai;
+    case "redis":
+      return redis;
+    case "weaviate":
+      return weaviate;
     default:
       break;
   }
