@@ -4,10 +4,15 @@ import ChatInterface from "./chat/ChatInterface";
 import { v4 as uuidv4 } from "uuid";
 import "../css/floating-chat.css";
 
-export default function FloatingChatWidget() {
+export default function FloatingChatWidget({ isAiEnabled = true }) {
     const [isOpen, setIsOpen] = useState(false);
     const [userId, setUserId] = useState("");
     const [chatId, setChatId] = useState("");
+
+    // Return null if AI is not enabled
+    if (!isAiEnabled) {
+        return null;
+    }
 
 
     useEffect(() => {

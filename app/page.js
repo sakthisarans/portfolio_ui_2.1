@@ -125,7 +125,7 @@ export default function Home() {
       <Footer personalData={portfolio.personalData} />
 
       {/* Floating Chat Widget */}
-      <FloatingChatWidget />
+      {portfolio.isAiEnabled && <FloatingChatWidget />}
     </div>
   );
 }
