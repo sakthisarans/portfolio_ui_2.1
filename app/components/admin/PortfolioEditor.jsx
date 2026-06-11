@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { updatePortfolio, getPortfolioRaw } from "@/utils/api";
 import { toast } from "react-toastify";
 
@@ -20,9 +20,9 @@ export default function PortfolioEditor({ domain }) {
             loadedDomainRef.current = domain;
             loadPortfolio();
         }
-    }, [domain]);
+    }, [domain, loadPortfolio]);
 
-    const loadPortfolio = async () => {
+    const loadPortfolio = useCallback(async () => {
         try {
             const data = await getPortfolioRaw(domain);
             setPortfolio(data);
@@ -34,7 +34,7 @@ export default function PortfolioEditor({ domain }) {
         } finally {
             setLoading(false);
         }
-    };
+    }, [domain]);
 
     const getEmptyPortfolioTemplate = () => ({
         personalData: {

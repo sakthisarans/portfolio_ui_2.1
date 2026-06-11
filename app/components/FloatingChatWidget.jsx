@@ -9,12 +9,6 @@ export default function FloatingChatWidget({ isAiEnabled = true }) {
     const [userId, setUserId] = useState("");
     const [chatId, setChatId] = useState("");
 
-    // Return null if AI is not enabled
-    if (!isAiEnabled) {
-        return null;
-    }
-
-
     useEffect(() => {
         if (typeof window !== "undefined") {
             const hostname = window.location.hostname;
@@ -28,15 +22,20 @@ export default function FloatingChatWidget({ isAiEnabled = true }) {
             } else {
                 setUserId(hostname); // Fallback for localhost
             }
-        }
 
-        let cid = sessionStorage.getItem("current_chat_id");
-        if (!cid) {
-            cid = uuidv4();
-            sessionStorage.setItem("current_chat_id", cid);
+            let cid = sessionStorage.getItem("current_chat_id");
+            if (!cid) {
+                cid = uuidv4();
+                sessionStorage.setItem("current_chat_id", cid);
+            }
+            setChatId(cid);
         }
-        setChatId(cid);
     }, []);
+
+    // Return null if AI is not enabled
+    if (!isAiEnabled) {
+        return null;
+    }
 
     const handleNewChat = () => {
         const newChatId = uuidv4();
